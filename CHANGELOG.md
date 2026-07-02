@@ -2,12 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
 ## [Unreleased]
 
-## [0.0.1] - 2019-02-15
-
 ### Added
-- Added a changelog
 
-[unreleased]: https://github.com/ibm/repo-template/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/ibm/repo-template/releases/tag/v0.0.1
+- Initial repository setup with community health files (README, CONTRIBUTING, MAINTAINERS, CODE_OF_CONDUCT, SECURITY, DCO, LICENSE)
+- GitHub issue templates for bug reports, example requests, and questions
+- Pull request template
+
+[unreleased]: https://github.com/IBM/oms-reference-customizations/commits/main/
