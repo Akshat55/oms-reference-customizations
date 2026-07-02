@@ -1,84 +1,169 @@
-## Contributing In General
-Our project welcomes external contributions. If you have an itch, please feel
-free to scratch it.
+# Contributing to oms-reference-customizations
 
-To contribute code or documentation, please submit a **FIXME** [pull request](https://github.com/ibm/repo-template/pulls).
+Thank you for your interest in contributing to this project! Whether you are an IBM team member, a partner, or a customer — contributions of all kinds are welcome.
 
-A good way to familiarize yourself with the codebase and contribution process is
-to look for and tackle low-hanging fruit in the **FIXME** [issue tracker](https://github.com/ibm/repo-template/issues).
-Before embarking on a more ambitious contribution, please quickly [get in touch](#communication) with us.
+## Table of Contents
 
-**Note: We appreciate your effort, and want to avoid a situation where a contribution
-requires extensive rework (by you or by us), sits in backlog for a long time, or
-cannot be accepted at all!**
+- [Ways to Contribute](#ways-to-contribute)
+- [Before You Start](#before-you-start)
+- [Contribution Workflow](#contribution-workflow)
+- [Adding a New Example](#adding-a-new-example)
+- [Coding Style Guidelines](#coding-style-guidelines)
+- [Legal](#legal)
+- [Communication](#communication)
 
-### Proposing new features
+---
 
-If you would like to implement a new feature, please **FIXME** [raise an issue](https://github.com/ibm/repo-template/issues)
-before sending a pull request so the feature can be discussed. This is to avoid
-you wasting your valuable time working on a feature that the project developers
-are not interested in accepting into the code base.
+## Ways to Contribute
 
-### Fixing bugs
+- **Add a new customization example** — share a pattern or reference implementation you have built for OMS
+- **Improve an existing example** — fix a bug, update it for a newer OMS version, or improve its documentation
+- **Report issues** — if an example does not work as described, open an [issue](https://github.com/IBM/oms-reference-customizations/issues/new?template=bug_report.md)
+- **Request a new example** — describe a customization scenario you need and open an [issue](https://github.com/IBM/oms-reference-customizations/issues/new?template=example_request.md)
+- **Improve documentation** — clearer explanations, better prerequisites, additional context
 
-If you would like to fix a bug, please **FIXME** [raise an issue](https://github.com/ibm/repo-template/issues) before sending a
-pull request so it can be tracked.
+---
 
-### Merge approval
+## Before You Start
 
-The project maintainers use LGTM (Looks Good To Me) in comments on the code
-review to indicate acceptance. A change requires LGTMs from two of the
-maintainers of each component affected.
+**For significant new additions**, please [open a discussion](https://github.com/IBM/oms-reference-customizations/discussions) or [raise an issue](https://github.com/IBM/oms-reference-customizations/issues/new?template=example_request.md) first so we can align before you invest significant effort. This avoids situations where a contribution cannot be accepted or requires substantial rework.
 
-For a list of the maintainers, see the [MAINTAINERS.md](MAINTAINERS.md) page.
+For small fixes (typos, broken links, minor corrections), feel free to open a pull request directly.
+
+---
+
+## Contribution Workflow
+
+1. **Fork** the repository on GitHub
+2. **Create a topic branch** from `main`:
+
+   ```bash
+   git checkout -b my-example-or-fix
+   ```
+
+3. **Make your changes** — see [Adding a New Example](#adding-a-new-example) below if you are contributing a new customization
+4. **Sign off every commit** (required — see [Legal](#legal)):
+
+   ```bash
+   git commit -s -m "Add example: brief description"
+   ```
+
+5. **Push** your branch and open a **Pull Request** against `main`
+6. A maintainer will review your PR. We aim to respond within a few business days
+7. Address any review feedback and update your branch
+8. Once approved (LGTM from at least one maintainer), a maintainer will merge your PR
+
+---
+
+## Adding a New Example
+
+Each customization example must be self-contained. When contributing a new example, create a dedicated directory following this structure:
+
+``` bash
+<category>/<example-name>/
+├── README.md          # Required — see template below
+├── <source files>
+└── ...
+```
+
+Where `<category>` is one of: `backend`, `ui`, `agentic-ai`, `skills`.
+
+### Example README template
+
+Every example must include a `README.md` with at minimum:
+
+```markdown
+# <Example Title>
+
+## Overview
+Brief description of what this customization does and the problem it solves.
+
+## Prerequisites
+- IBM Order Management System version X.x or later (if applicable)
+- Any other dependencies or environment requirements
+
+## How to Use
+Step-by-step instructions to apply this customization.
+
+## Notes
+Any caveats, limitations, or version-specific considerations.
+
+## License
+Copyright IBM Corp. 2025 - Present
+SPDX-License-Identifier: Apache-2.0
+```
+
+### Source file license headers
+
+Every source file must include a license header. The SPDX format is preferred:
+
+``` markdown
+#
+# Copyright IBM Corp. 2025 - Present
+# SPDX-License-Identifier: Apache-2.0
+#
+```
+
+Adjust the comment syntax to match the file type (e.g., `//` for JavaScript/TypeScript, `<!--  -->` for HTML/XML).
+
+---
+
+## Coding Style Guidelines
+
+- Follow the conventions already established in the category you are contributing to
+- Keep examples focused and minimal — demonstrate the pattern, not a full application
+- Avoid hardcoded credentials, API keys, or internal IBM URLs
+- Use environment variables or placeholder values for any sensitive configuration
+- Prefer clarity over cleverness — these examples will be read by people unfamiliar with your codebase
+
+---
 
 ## Legal
 
-Each source file must include a license header for the Apache
-Software License 2.0. Using the SPDX format is the simplest approach.
-e.g.
+### Developer Certificate of Origin (DCO)
 
-```
-/*
-Copyright <holder> All Rights Reserved.
+This project uses the [Developer Certificate of Origin (DCO)](DCO.md) to certify that contributors have the right to submit their contributions under the Apache 2.0 license.
 
-SPDX-License-Identifier: Apache-2.0
-*/
+**Every commit must be signed off.** A sign-off is a line at the end of your commit message:
+
+``` git
+Signed-off-by: Your Name <your.email@example.com>
 ```
 
-We have tried to make it as easy as possible to make contributions. This
-applies to how we handle the legal aspects of contribution. We use the
-same approach - the [Developer's Certificate of Origin 1.1 (DCO)](https://github.com/hyperledger/fabric/blob/master/docs/source/DCO1.1.txt) - that the Linux® Kernel [community](https://elinux.org/Developer_Certificate_Of_Origin)
-uses to manage code contributions.
+Add it automatically with:
 
-We simply ask that when submitting a patch for review, the developer
-must include a sign-off statement in the commit message.
-
-Here is an example Signed-off-by line, which indicates that the
-submitter accepts the DCO:
-
-```
-Signed-off-by: John Doe <john.doe@example.com>
-```
-
-You can include this automatically when you commit a change to your
-local git repository using the following command:
-
-```
+```bash
 git commit -s
 ```
 
+If you forget to sign off, you can amend the last commit:
+
+```bash
+git commit --amend --signoff
+```
+
+Or sign off multiple commits:
+
+```bash
+git rebase --signoff HEAD~<number-of-commits>
+```
+
+The [DCO bot](https://github.com/probot/dco) will check all commits in a PR. PRs with unsigned commits cannot be merged.
+
+### License headers
+
+All source files must carry the Apache 2.0 SPDX header (see [Adding a New Example](#adding-a-new-example) above).
+
+### AI-generated code
+
+If you use AI tools (Copilot, watsonx Code Assistant, etc.) to help write your contribution, you remain responsible for the correctness, originality, and licensing compliance of the submitted code. Please review AI-generated code carefully and comply with [IBM's AI Code Policy](https://w3.ibm.com/developer/docs/open-source/legal-ai-code-policy) if you are an IBMer.
+
+---
+
 ## Communication
-**FIXME** Please feel free to connect with us on our [Slack channel](link).
 
-## Setup
-**FIXME** Please add any special setup instructions for your project to help the developer
-become productive quickly.
+- **Questions, ideas, general discussion:** [GitHub Discussions](https://github.com/IBM/oms-reference-customizations/discussions)
+- **Bug reports & issues:** [GitHub Issues](https://github.com/IBM/oms-reference-customizations/issues)
+- **Security vulnerabilities:** see [SECURITY.md](SECURITY.md) — do **not** open a public issue
 
-## Testing
-**FIXME** Please provide information that helps the developer test any changes they make
-before submitting.
-
-## Coding style guidelines
-**FIXME** Optional, but recommended: please share any specific style guidelines you might
-have for your project.
+For a list of maintainers, see [MAINTAINERS.md](MAINTAINERS.md).
